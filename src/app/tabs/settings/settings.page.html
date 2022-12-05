@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"></ion-buttons>
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="end"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense" *ngIf="platformService.isIOS">
+    <ion-toolbar>
+      <ion-title size="large">Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-avatar slot="start" style="width: 58px;height: 58px;">
+        <ion-img alt="Avatar" [src]="auth.form.profilePicture"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{auth.form.name}}
+        <p>Available</p>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="qr-code-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Starred Messages
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-icon name="desktop-outline"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Linked Devices
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none" routerLink="./account">
+      <ion-buttons slot="start">
+        <ion-icon name="key-outline"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Accounts
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Chats
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Notifications
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-icon name="logo-paypal"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Payments
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-icon name="cloud-upload-outline"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Storage and Data
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-icon name="information-outline"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Help
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-icon name="heart-circle-outline"></ion-icon>
+      </ion-buttons>
+      <ion-label>
+        Tell a Friend
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+  <div style="height: 500px;"></div>
+</ion-content>

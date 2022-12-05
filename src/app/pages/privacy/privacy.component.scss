@@ -1,0 +1,12 @@
+.status-user-bar {
+    margin-top: 32px;
+}
+
+:host ion-page, :host ion-content {
+    --background: #EFEFF4;
+    background-color: #EFEFF4;
+}
+
+ion-item {
+    border-bottom: 0.1px solid lightgray;
+}

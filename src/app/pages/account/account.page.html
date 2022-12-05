@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/tabs/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Accounts</ion-title>
+    <ion-buttons slot="end"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-header collapse="condense" *ngIf="platformService.isIOS">
+    <ion-toolbar>
+      <ion-title size="large">Accounts</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none" routerLink="./privacy">
+      <ion-label>
+        Privacy
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        Security
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        Two-Steps Verification
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        Change Number
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+ 
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-label>
+        Request info
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none" (click)="auth.SignOut()">
+      <ion-label>
+        Delete My Account
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+  <div style="height: 500px;"></div>
+</ion-content>

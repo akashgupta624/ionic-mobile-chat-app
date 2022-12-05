@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Get Started ...
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <h2>Create Your Profile,</h2>
+  <h3>To get started!</h3>
+
+  <form>
+    <ion-avatar class="avatar" (click)="uploadImage()">
+      <ion-img alt="Avatar" [src]="authService.form.profilePicture"></ion-img>
+      <div class="edit"><ion-icon name="create-outline"></ion-icon><span>Edit</span></div>
+    </ion-avatar>
+    <ion-item>
+      <ion-textarea [placeholder]="authService.form.name" [id]="'name'" (input)="authService.form.name = $event.target.value"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-textarea [placeholder]="authService.form.email" [id]="'email'" (input)="authService.form.email = $event.target.value"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-textarea [placeholder]="authService.form.phone" [id]="'phone'" (input)="authService.form.phone = $event.target.value"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-textarea autoGrow [placeholder]="authService.form.status" [id]="'status'" (input)="authService.form.status = $event.target.value"></ion-textarea>
+    </ion-item>
+    <app-button label='Get started' (clickEvent)="onClick($event)"></app-button>
+  </form>
+
+</ion-content>

@@ -1,0 +1,17 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "Supp",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "https://ionic-a0bf2.web.app/login",
+    "cleartext": true
+  },
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

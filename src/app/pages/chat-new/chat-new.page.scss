@@ -1,0 +1,14 @@
+ion-modal.stack-modal {
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+    --backdrop-opacity: var(--ion-backdrop-opacity, 0.32);
+  }
+
+.otherContacts {
+    margin-left: 20px;
+}
+
+ion-modal {
+    button {
+        --background: none;
+    }
+}

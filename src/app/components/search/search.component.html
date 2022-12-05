@@ -1,0 +1,58 @@
+<ion-list class="searchItems">
+    <div class="fixedSearchItems" *ngIf="!isSearchStarted">
+      <ion-item>
+        <ion-icon name="camera-outline"></ion-icon>
+        <ion-label>Photos</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="aperture-outline"></ion-icon>
+        <ion-label>GIFs</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="link-outline"></ion-icon>
+        <ion-label>Links</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="videocam-outline"></ion-icon>
+        <ion-label>Videos</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="document-text-outline"></ion-icon>
+        <ion-label>Documents</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="musical-notes-outline"></ion-icon>
+        <ion-label>Audio</ion-label>
+      </ion-item>
+    </div>
+    <div class="dynamicSearchItems" *ngIf="isSearchStarted">
+      <div *ngIf="searchResults.length > 0">
+        <h3 class="otherContacts">Other Contacts</h3>
+        <ng-container *ngFor="let searchResult of searchResults">
+          <ion-item button detail="false">
+            <ion-avatar slot="start" style="width: 52px;height:52px">
+              <!-- <ion-img alt="Avatar" [src]="authService.form.profilePicture"></ion-img> -->
+            </ion-avatar>
+            <ion-label>
+              {{searchResult.displayName}}
+              <br>
+              <ion-text color="medium">
+                {{searchResult.organizationRole}}
+              </ion-text>
+              <small class="ion-float-right">
+                <ion-icon name="information-circle-outline"></ion-icon>
+              </small>
+              <p>
+                <ion-text color="medium" class="colorPink">
+                  {{searchResult.organizationName}}
+                </ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ng-container>
+      </div>
+      <div *ngIf="searchResults.length === 0" class="noRecords">
+        <h3>No Records</h3>
+      </div>
+    </div>
+  </ion-list>

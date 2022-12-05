@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        Change
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Chats</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button id="open-modal" expand="block">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="platformService.isAndroid">
+    <ion-searchbar [(ngModel)]="searchValue"  placeholder="Search" [showClearButton]="'never'" [showCancelButton]="showCancelButton" (ionCancel)="onCancel()" (click)="onSearch($event.target.value)" [debounce]="100" (ionChange)="handleChange($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense" *ngIf="platformService.isIOS">
+    <ion-toolbar>
+      <ion-title size="large">Chats</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar [(ngModel)]="searchValue" placeholder="Search" [showClearButton]="'never'" [showCancelButton]="showCancelButton" (ionCancel)="onCancel()" (click)="onSearch($event.target.value)" [debounce]="100" (ionChange)="handleChange($event)"></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list *ngIf="!isSearchMode">
+    <ion-item button detail="false" *ngFor="let chat of chatsList" [routerLink]="['/chat-detail', chat.id]"
+      routerdirection="forward">
+      <ion-avatar slot="start" style="width: 52px;height:52px">
+        <ion-img alt="Avatar" [src]="chat.avatar"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{chat.name}}
+        <small class="ion-float-right">
+          <ion-text color="medium">{{chat.lastMessageTime}}</ion-text>
+          <br>
+          <ion-badge class="unReadCount" *ngIf="chat.unRead > 0" color="primary">{{chat.unRead}}</ion-badge>
+        </small>
+        <p>
+          <ion-text color="medium">
+            {{chat.lastMessage}}
+          </ion-text>
+        </p>
+        
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list class="searchItems" *ngIf="isSearchMode">
+    <div class="fixedSearchItems" *ngIf="!isSearchStarted">
+      <ion-item>
+        <ion-icon name="camera-outline"></ion-icon>
+        <ion-label>Photos</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="aperture-outline"></ion-icon>
+        <ion-label>GIFs</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="link-outline"></ion-icon>
+        <ion-label>Links</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="videocam-outline"></ion-icon>
+        <ion-label>Videos</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="document-text-outline"></ion-icon>
+        <ion-label>Documents</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="musical-notes-outline"></ion-icon>
+        <ion-label>Audio</ion-label>
+      </ion-item>
+    </div>
+    <div class="dynamicSearchItems" *ngIf="isSearchStarted">
+      <div *ngIf="searchResults.length > 0">
+        <h3 class="otherContacts">Other Contacts</h3>
+        <ng-container *ngFor="let searchResult of searchResults">
+          <ion-item button detail="false" (click)="onClick(searchResult)">
+            <ion-avatar slot="start" style="width: 52px;height:52px">
+              <ion-img alt="Avatar" [src]="searchResult.photoThumbnail"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              {{searchResult.displayName}}
+              <br>
+              <ion-text color="medium">
+                {{searchResult.organizationRole}}
+              </ion-text>
+              <small class="ion-float-right">
+                <ion-icon name="information-circle-outline"></ion-icon>
+              </small>
+              <p>
+                <ion-text color="medium" class="colorPink">
+                  {{searchResult.organizationName}}
+                </ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ng-container>
+      </div>
+      <div *ngIf="searchResults.length === 0" class="noRecords">
+        <h3>No Records</h3>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>
+<app-chat-new></app-chat-new>

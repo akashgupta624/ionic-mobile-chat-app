@@ -1,0 +1,17 @@
+.status-user-bar {
+    margin-top: 32px;
+    padding: 0;
+}
+
+:host ion-page, :host ion-content {
+    --background: #EFEFF4;
+    background-color: #EFEFF4;
+}
+
+.addButton {
+    position: absolute;
+    display: inline-block;
+    margin: -27px 0px 0px 47px;
+    font-size: 24px;
+    color: #008080cc;
+}

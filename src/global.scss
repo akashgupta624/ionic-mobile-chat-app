@@ -1,0 +1,93 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "./theme/fonts.scss";
+
+* {
+  font-family: Gilroy;
+}
+
+@media screen and (min-width:600px) {
+  body {
+    width: 600px;
+    margin: auto;
+    position: relative
+  }
+}
+
+ion-toolbar, ion-search {
+  --background: #008080cc;
+}
+ion-title {
+  text-align: center;
+}
+.ios ion-searchbar {
+  --background: #008080cc !important;
+}
+
+ion-tab-button {
+  ion-icon {
+    color: #008080cc;
+  }
+  ion-label {
+    color: #008080cc;
+  }
+}
+.tab-selected {
+  ion-icon, ion-label {
+      color: var(--ion-color-primary) !important;
+      --ion-color-base: var(--ion-color-primary) !important;
+  }
+}
+ion-button {
+  ion-icon {
+    color: #008080cc;
+  }
+}
+ion-button {
+    --color: #008080cc;
+}
+ion-fab-button {
+  --background: #008080cc;
+}
+
+ion-spinner {
+  width: 70px;
+  height: 70px;
+}
+
+.loader {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(54 44 44 / 48%);
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  color: black;
+  z-index: 999;
+}

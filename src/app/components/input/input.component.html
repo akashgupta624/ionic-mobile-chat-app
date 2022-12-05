@@ -1,0 +1,4 @@
+<div class="form-field">
+  <label [ngClass]="focused ? 'label-focused' : ''" label="label">{{label}}</label>
+  <input [id]="id" [maxLength]="maxLength" [type]="type" [(value)]="value" (focus)="focused = true" (blur)="onBlur($event)" (keyup)="onInput($event)" />
+</div>

@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  margin-top: 4%;
+  font-weight: 700;
+}
+
+h3 {
+  color: #939fab;
+  font-weight: 600;
+}
+
+form {
+  app-button {
+    display: block;
+    margin-top: 2rem;
+  }
+}
+
+.avatar {
+  margin: auto;
+  margin: 20px auto;
+  width: 120px;
+  height: 120px;
+}
+.edit {
+  margin-top: -28px;
+  margin-left: 41px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: -9;
+
+  span {
+    position: absolute;
+  }
+}
+
+ion-item {
+  margin-bottom: 10px;
+}
+
+textarea {
+  padding: 0px;
+}

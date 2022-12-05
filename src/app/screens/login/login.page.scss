@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  margin-top: 4%;
+  font-weight: 700;
+}
+
+h3 {
+  color: #939fab;
+  font-weight: 600;
+}
+
+form {
+  margin-top: 3rem;
+
+  .forgot-password-link {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    font-weight: 600;
+    font-size: 14px;
+    color: #4a4a4a;
+  }
+
+  app-button {
+    display: block;
+    margin-top: 2rem;
+  }
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 17px;
+  margin-top: 2%;
+
+  a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #008080cc;
+  }
+}
+
+.or {
+  margin: 10px;
+  text-align: center;
+  font-weight: bolder;
+}
+#captcha {
+  display: flex;
+  justify-content: center;
+}
+.number {
+  display: flex;
+  justify-content: space-around;
+
+  ::ng-deep ion-item {
+    width: 40%;
+  }
+  ::ng-deep app-input {
+    width: 60%;
+  }
+}
+
+.verify {
+  display: flex;
+  justify-content: space-around;
+
+  ::ng-deep app-input {
+    width: 40%;
+  }
+  ::ng-deep app-button {
+    width: 60%;
+    margin-top: -3px !important;
+  }
+}
+.circular {
+  margin: 10px auto;
+}
+::ng-deep .connect ion-button {
+  color: #008080cc !important;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+    .connect {
+      width: 35px;
+      height: 35px;
+      border: 1px solid gray;
+      border-radius: 50%;
+      margin: 10px 20px;
+      color: #008080cc;
+    }
+
+}
+
+.connectGoogle {
+  color: #c61809 !important;
+}
+
+.connectFacebook {
+  color: #4285F4 !important;
+}

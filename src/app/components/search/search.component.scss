@@ -1,0 +1,26 @@
+.fixedSearchItems ion-icon {
+    color: #008080cc;
+    margin-right: 20px;
+    width: 22px;
+    height: 22px;
+}
+.dynamicSearchItems ion-icon {
+    color: #008080cc;
+    width: 22px;
+    height: 22px;
+}
+
+.dynamicSearchItems .colorPink {
+    color: #008080cc;
+}
+.searchItems {
+    transition: 20ms;
+}
+.otherContacts {
+    margin-left: 20px;
+}
+.noRecords {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+}

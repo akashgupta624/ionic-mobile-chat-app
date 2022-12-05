@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/tabs/settings/account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Privacy</ion-title>
+    <ion-buttons slot="end"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-header collapse="condense" *ngIf="platformService.isIOS">
+    <ion-toolbar>
+      <ion-title size="large">Privacy</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-label>
+        Last Seen
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        Profile Photo
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        About
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        Groups
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>
+        Status
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+ 
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-label>
+        Live Location
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-label>
+        Blocked
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-label>
+        Default Message Timer
+      </ion-label>
+      <ion-toggle slot="end" [checked]="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-label>
+        Read Receipts
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="status-user-bar">
+    <ion-item lines="none">
+      <ion-label>
+        Screen Lock
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+  <div style="height: 500px;"></div>
+</ion-content>
