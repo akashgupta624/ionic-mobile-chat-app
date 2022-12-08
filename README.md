@@ -1,2 +1,5 @@
-# ionic-mobile-chat-app
-# ionic-mobile-chat-app
+
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/akashgupta624/test.git
+git push -u origin main
