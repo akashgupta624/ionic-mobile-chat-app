@@ -32,7 +32,7 @@ export class RegisterPage implements OnInit {
   public onClick(data: any) {
     this.authService.showLoader = true;
     this.authService.form.deviceToken = (this.authService.form?.deviceToken)? this.authService.form.deviceToken: 'No Token';
-    let msg: ServerMessage = new ServerMessage('subscribe', 'addUserToDatabase', this.authService.form);
+    let msg: ServerMessage = new ServerMessage('subscribe', 'addUserToDatabase', JSON.stringify(this.authService.form));
     this.dataService.socket$.emit('subscribe', msg, async (data) => {
       this.authService.showLoader = false;
       if(data.subscriptionType === 'Success') {

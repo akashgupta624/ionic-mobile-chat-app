@@ -23,9 +23,7 @@ export class AuthenticationService {
     phone: 'Your Phone Number',
     profilePicture: '../../../assets/img/avatar.svg',
     otp: 'OTP',
-    googleAuth: 'auth',
-    facebookAuth: 'auth',
-    phoneAuth: 'auth',
+    phoneAuth: {},
     conversations: {
       'Admin': {"chats":[{"date":new Date(),"chats":[{"message":"Welcome from Ionic App","date":new Date(),"type":"user"}, {"message":"Please go through your privacy settings","date":new Date(),"type":"user"}]}],"lastMessage":"Please go through your privacy settings","lastMessageTime":new Date(),"displayName":"Admin","phoneNumbers":[{"number":"Admin","label":"mobile"}],"emails":[],"contactId":"0081300F-C478-4D95-B8CF-3EEECE3FFBF2:ABPerson","photoThumbnail":"default","status":"What's in your mind ...","organizationRole":"Admin","unRead":2}
     },
@@ -68,7 +66,7 @@ export class AuthenticationService {
   SignIn() {
     this.ngFireAuth.signInWithEmailAndPassword(this.form.email, this.form.password)
     .then((result) => {
-      this.form.googleAuth = result;
+      //this.form.googleAuth = result;
       this.router.navigate(['/register']);
     })
     .catch((error) => {
@@ -97,7 +95,7 @@ export class AuthenticationService {
   RegisterUser() {
     return this.ngFireAuth.createUserWithEmailAndPassword(this.form.email, this.form.password)
     .then((result) => {
-      this.form.googleAuth = result;
+      //this.form.googleAuth = result;
       this.router.navigate(['/register']);
     })
     .catch((error) => {
@@ -140,7 +138,7 @@ export class AuthenticationService {
   GoogleAuth() {
     this.ngFireAuth.signInWithPopup(new auth.GoogleAuthProvider())
     .then((result) => {
-      this.form.googleAuth = result;
+      //this.form.googleAuth = result;
       this.router.navigate(['/register']);
     })
     .catch((error) => {
@@ -150,7 +148,7 @@ export class AuthenticationService {
   FacebookAuth() {
     this.ngFireAuth.signInWithPopup(new auth.FacebookAuthProvider())
     .then((result) => {
-      this.form.facebookAuth = result;
+      //this.form.facebookAuth = result;
       this.router.navigate(['/register']);
     })
     .catch((error) => {
@@ -252,8 +250,6 @@ export interface User {
   status: any,
   profilePicture: any,
   otp: any,
-  googleAuth: any,
-  facebookAuth: any,
   phoneAuth: any,
   conversations: Object,
   groups: Object,
