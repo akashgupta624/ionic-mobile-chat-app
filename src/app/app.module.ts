@@ -21,9 +21,11 @@ import { environment } from '../environments/environment';
 import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { AsyncPipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VideoAudioCallComponent } from './pages/video-audio-call/video-audio-call.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, VideoAudioCallComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -36,6 +38,8 @@ import { AsyncPipe } from '@angular/common';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    FormsModule, 
+    ReactiveFormsModule,
    ],
   providers: [
     StatusBar,

@@ -1511,5 +1511,49 @@ sub {
     position: relative;
   }
 }
+ion-toolbar, ion-search {
+  --background: #008080cc;
+}
+ion-title {
+  text-align: center;
+}
+.ios ion-searchbar {
+  --background: #008080cc !important;
+}
+ion-tab-button ion-icon {
+  color: rgba(0, 128, 128, 0.8);
+}
+ion-tab-button ion-label {
+  color: rgba(0, 128, 128, 0.8);
+}
+.tab-selected ion-icon, .tab-selected ion-label {
+  color: var(--ion-color-primary) !important;
+  --ion-color-base: var(--ion-color-primary) !important;
+}
+ion-button ion-icon {
+  color: rgba(0, 128, 128, 0.8);
+}
+ion-button {
+  --color: #008080cc;
+}
+ion-fab-button {
+  --background: #008080cc;
+}
+ion-spinner {
+  width: 70px;
+  height: 70px;
+}
+.loader {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(54, 44, 44, 0.48);
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  color: black;
+  z-index: 999;
+}
 
 /*# sourceMappingURL=styles.css.map*/

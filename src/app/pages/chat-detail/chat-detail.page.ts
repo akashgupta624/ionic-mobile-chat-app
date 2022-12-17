@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '@capacitor-community/contacts';
 import { Preferences } from '@capacitor/preferences';
 import { IonContent, IonItemSliding } from '@ionic/angular';
@@ -44,7 +44,8 @@ export class ChatDetailPage implements OnInit, OnDestroy {
   constructor(
     private authService: AuthenticationService,
     private route: ActivatedRoute,
-    private dataService: ServerConnect
+    private dataService: ServerConnect,
+    private router: Router
   ) {
     this.route.params.subscribe(params => {
       this.userId = params.id;
@@ -151,6 +152,9 @@ export class ChatDetailPage implements OnInit, OnDestroy {
     // })
   }
 
+  call(): void {
+    this.router.navigate(['/call', {"user": JSON.stringify(this.user), "uniqueId": null}]);
+  }
   ionViewDidEnter() { }
 
   ngOnDestroy(): void {

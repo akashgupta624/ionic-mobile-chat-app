@@ -26,6 +26,14 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Main</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone Usage</string>
+	<key>ManualInitAudioDevice</key>
+	<string>$MANUAL_INIT_AUDIO_DEVICE</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This Application uses your wireless headphones and microphone to make calls.</string>
+	<key>UseManualLayoutRenderer</key>
+	<true/>
 	<key>NSContactsUsageDescription</key>
 	<string>We need access to your contacts in order to do something</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -42,14 +50,14 @@
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
-	<dict>
-		<key>CFBundleURLName</key>
-		<string>com.getcapacitor.capacitor</string>
-		<key>CFBundleURLSchemes</key>
-		<array>
-		<string>mycustomscheme</string>
-		</array>
-	</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.getcapacitor.capacitor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mycustomscheme</string>
+			</array>
+		</dict>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

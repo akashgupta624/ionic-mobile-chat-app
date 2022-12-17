@@ -42,7 +42,9 @@
                 "input": "src/global.scss"
               }
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@apizee/apirtc/apiRTC.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -103,7 +105,9 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "styles": [],
-            "scripts": [],
+            "scripts": [
+              "node_modules/@apizee/apirtc/apiRTC.min.js"
+            ],
             "assets": [
               {
                 "glob": "favicon.ico",

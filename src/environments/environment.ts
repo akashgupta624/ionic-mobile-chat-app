@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   server: 'http://192.168.1.2:8081',
+  apiKey: 'apzkey:46b4185ea26b9b9e2325a623b3bbcede',
   firebaseConfig : {
     apiKey: "AIzaSyDgjcuF2_6smK5QUfPGuuqElcxfhlM778A",
     authDomain: "ionic-a0bf2.firebaseapp.com",

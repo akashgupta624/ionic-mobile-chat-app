@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ion_picker": () => (/* binding */ Picker),
 /* harmony export */   "ion_picker_column": () => (/* binding */ PickerColumnCmp)
 /* harmony export */ });
-/* harmony import */ var _Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var _index_8e692445_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index-8e692445.js */ 91559);
 /* harmony import */ var _index_40bb69ee_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index-40bb69ee.js */ 2002);
 /* harmony import */ var _ionic_global_c95cf239_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ionic-global-c95cf239.js */ 58607);
@@ -1109,7 +1109,7 @@ const Datetime = class {
   confirm(closeOverlay = false) {
     var _this = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const {
         isCalendarPicker,
         activeParts
@@ -1163,7 +1163,7 @@ const Datetime = class {
   reset(startDate) {
     var _this2 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this2.processValue(startDate);
     })();
   }
@@ -1178,7 +1178,7 @@ const Datetime = class {
   cancel(closeOverlay = false) {
     var _this3 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this3.ionCancel.emit();
 
       if (closeOverlay) {
@@ -1478,7 +1478,6 @@ const Datetime = class {
 
   renderCombinedDatePickerColumn() {
     const {
-      activeParts,
       workingParts,
       locale,
       minParts,
@@ -1486,6 +1485,7 @@ const Datetime = class {
       todayParts,
       isDateEnabled
     } = this;
+    const activePart = this.getDefaultPart();
     /**
      * By default, generate a range of 3 months:
      * Previous month, current month, and next month
@@ -1565,12 +1565,8 @@ const Datetime = class {
           year
         }) => value === `${year}-${month}-${day}`);
         this.setWorkingParts(Object.assign(Object.assign({}, workingParts), findPart));
-
-        if (!Array.isArray(activeParts)) {
-          this.setActiveParts(Object.assign(Object.assign({}, activeParts), findPart));
-        } // We can re-attach the scroll listener after
+        this.setActiveParts(Object.assign(Object.assign({}, activePart), findPart)); // We can re-attach the scroll listener after
         // the working parts have been updated.
-
 
         this.initializeCalendarListener();
         ev.stopPropagation();
@@ -1647,9 +1643,9 @@ const Datetime = class {
     }
 
     const {
-      activeParts,
       workingParts
     } = this;
+    const activePart = this.getDefaultPart();
     return (0,_index_8e692445_js__WEBPACK_IMPORTED_MODULE_1__.h)("ion-picker-column-internal", {
       class: "day-column",
       color: this.color,
@@ -1667,14 +1663,10 @@ const Datetime = class {
         this.setWorkingParts(Object.assign(Object.assign({}, workingParts), {
           day: ev.detail.value
         }));
-
-        if (!Array.isArray(activeParts)) {
-          this.setActiveParts(Object.assign(Object.assign({}, activeParts), {
-            day: ev.detail.value
-          }));
-        } // We can re-attach the scroll listener after
+        this.setActiveParts(Object.assign(Object.assign({}, activePart), {
+          day: ev.detail.value
+        })); // We can re-attach the scroll listener after
         // the working parts have been updated.
-
 
         this.initializeCalendarListener();
         ev.stopPropagation();
@@ -1688,9 +1680,9 @@ const Datetime = class {
     }
 
     const {
-      activeParts,
       workingParts
     } = this;
+    const activePart = this.getDefaultPart();
     return (0,_index_8e692445_js__WEBPACK_IMPORTED_MODULE_1__.h)("ion-picker-column-internal", {
       class: "month-column",
       color: this.color,
@@ -1708,14 +1700,10 @@ const Datetime = class {
         this.setWorkingParts(Object.assign(Object.assign({}, workingParts), {
           month: ev.detail.value
         }));
-
-        if (!Array.isArray(activeParts)) {
-          this.setActiveParts(Object.assign(Object.assign({}, activeParts), {
-            month: ev.detail.value
-          }));
-        } // We can re-attach the scroll listener after
+        this.setActiveParts(Object.assign(Object.assign({}, activePart), {
+          month: ev.detail.value
+        })); // We can re-attach the scroll listener after
         // the working parts have been updated.
-
 
         this.initializeCalendarListener();
         ev.stopPropagation();
@@ -1729,9 +1717,9 @@ const Datetime = class {
     }
 
     const {
-      activeParts,
       workingParts
     } = this;
+    const activePart = this.getDefaultPart();
     return (0,_index_8e692445_js__WEBPACK_IMPORTED_MODULE_1__.h)("ion-picker-column-internal", {
       class: "year-column",
       color: this.color,
@@ -1749,14 +1737,10 @@ const Datetime = class {
         this.setWorkingParts(Object.assign(Object.assign({}, workingParts), {
           year: ev.detail.value
         }));
-
-        if (!Array.isArray(activeParts)) {
-          this.setActiveParts(Object.assign(Object.assign({}, activeParts), {
-            year: ev.detail.value
-          }));
-        } // We can re-attach the scroll listener after
+        this.setActiveParts(Object.assign(Object.assign({}, activePart), {
+          year: ev.detail.value
+        })); // We can re-attach the scroll listener after
         // the working parts have been updated.
-
 
         this.initializeCalendarListener();
         ev.stopPropagation();
@@ -1793,13 +1777,9 @@ const Datetime = class {
         this.setWorkingParts(Object.assign(Object.assign({}, workingParts), {
           hour: ev.detail.value
         }));
-
-        if (!Array.isArray(activePart)) {
-          this.setActiveParts(Object.assign(Object.assign({}, activePart), {
-            hour: ev.detail.value
-          }));
-        }
-
+        this.setActiveParts(Object.assign(Object.assign({}, activePart), {
+          hour: ev.detail.value
+        }));
         ev.stopPropagation();
       }
     });
@@ -1820,13 +1800,9 @@ const Datetime = class {
         this.setWorkingParts(Object.assign(Object.assign({}, workingParts), {
           minute: ev.detail.value
         }));
-
-        if (!Array.isArray(activePart)) {
-          this.setActiveParts(Object.assign(Object.assign({}, activePart), {
-            minute: ev.detail.value
-          }));
-        }
-
+        this.setActiveParts(Object.assign(Object.assign({}, activePart), {
+          minute: ev.detail.value
+        }));
         ev.stopPropagation();
       }
     });
@@ -1856,14 +1832,10 @@ const Datetime = class {
           ampm: ev.detail.value,
           hour
         }));
-
-        if (!Array.isArray(activePart)) {
-          this.setActiveParts(Object.assign(Object.assign({}, activePart), {
-            ampm: ev.detail.value,
-            hour
-          }));
-        }
-
+        this.setActiveParts(Object.assign(Object.assign({}, activePart), {
+          ampm: ev.detail.value,
+          hour
+        }));
         ev.stopPropagation();
       }
     });
@@ -1960,6 +1932,7 @@ const Datetime = class {
     // can free-scroll the calendar.
 
     const isWorkingMonth = this.workingParts.month === month && this.workingParts.year === year;
+    const activePart = this.getDefaultPart();
     return (0,_index_8e692445_js__WEBPACK_IMPORTED_MODULE_1__.h)("div", {
       "aria-hidden": !isWorkingMonth ? 'true' : null,
       class: {
@@ -2040,7 +2013,7 @@ const Datetime = class {
               year
             }, isActive);
           } else {
-            this.setActiveParts(Object.assign(Object.assign({}, this.activeParts), {
+            this.setActiveParts(Object.assign(Object.assign({}, activePart), {
               month,
               day,
               year
@@ -2098,7 +2071,7 @@ const Datetime = class {
       "aria-expanded": "false",
       "aria-haspopup": "true",
       onClick: function () {
-        var _ref = (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (ev) {
+        var _ref = (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (ev) {
           const {
             popoverRef
           } = _this4;
@@ -2157,12 +2130,13 @@ const Datetime = class {
 
     const {
       activeParts,
+      multiple,
       titleSelectedDatesFormatter
     } = this;
     const isArray = Array.isArray(activeParts);
     let headerText;
 
-    if (isArray && activeParts.length !== 1) {
+    if (multiple && isArray && activeParts.length !== 1) {
       headerText = `${activeParts.length} days`; // default/fallback for multiple selection
 
       if (titleSelectedDatesFormatter !== undefined) {
@@ -2427,7 +2401,7 @@ const Picker = class {
   present() {
     var _this5 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       yield (0,_overlays_87c7c7cb_js__WEBPACK_IMPORTED_MODULE_10__.d)(_this5, 'pickerEnter', iosEnterAnimation, iosEnterAnimation, undefined);
 
       if (_this5.duration > 0) {
@@ -2483,7 +2457,7 @@ const Picker = class {
   buttonClick(button) {
     var _this6 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const role = button.role;
 
       if ((0,_overlays_87c7c7cb_js__WEBPACK_IMPORTED_MODULE_10__.i)(role)) {
@@ -2503,7 +2477,7 @@ const Picker = class {
   callButtonHandler(button) {
     var _this7 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (button) {
         // a handler has been provided, execute it
         // pass the handler the values from the inputs
@@ -2626,7 +2600,7 @@ const PickerColumnCmp = class {
   connectedCallback() {
     var _this8 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       let pickerRotateFactor = 0;
       let pickerScaleFactor = 0.81;
       const mode = (0,_ionic_global_c95cf239_js__WEBPACK_IMPORTED_MODULE_3__.b)(_this8);

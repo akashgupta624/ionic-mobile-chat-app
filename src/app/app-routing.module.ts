@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { VideoAudioCallComponent } from './pages/video-audio-call/video-audio-call.component';
 import { AuthGuardService } from './services/route-guard';
 import { TabAuthGuardService } from './services/tab-route-guard';
 
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./screens/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'call',
+    component: VideoAudioCallComponent
   },
   {
     path: '**',

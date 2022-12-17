@@ -63,6 +63,17 @@ initApp(): void {
     result => {console.log('Has permission?',result.hasPermission);this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.WRITE_CONTACTS)},
     err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.WRITE_CONTACTS)
   );
+  this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
+    result => console.log('Has permission?', result.hasPermission),
+    err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
+  );
+
+  this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+    result => console.log('Has permission?', result.hasPermission),
+    err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+  );
+
+  this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
   PushNotifications.requestPermissions().then(result => {
     if (result.receive === 'granted') {
       // Register with Apple / Google to receive push via APNS/FCM
@@ -84,7 +95,8 @@ initApp(): void {
   PushNotifications.addListener(
     'pushNotificationReceived',
     (notification: PushNotificationSchema) => {
-      alert('Push received: ' + JSON.stringify(notification));
+      this.authService.showLoader = true;
+      //this.router.navigate(['/chat-detail', ]);
     },
   );
 

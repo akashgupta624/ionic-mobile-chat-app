@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   server: 'https://node-ionic-chat-server.onrender.com',
+  apiKey: 'apzkey:46b4185ea26b9b9e2325a623b3bbcede',
   firebaseConfig : {
     apiKey: "AIzaSyDgjcuF2_6smK5QUfPGuuqElcxfhlM778A",
     authDomain: "ionic-a0bf2.firebaseapp.com",

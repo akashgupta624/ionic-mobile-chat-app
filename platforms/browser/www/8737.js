@@ -65,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ion_modal": () => (/* binding */ Modal)
 /* harmony export */ });
-/* harmony import */ var _Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var _index_8e692445_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index-8e692445.js */ 91559);
 /* harmony import */ var _ionic_global_c95cf239_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ionic-global-c95cf239.js */ 58607);
 /* harmony import */ var _index_5d0c8232_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index-5d0c8232.js */ 33081);
@@ -237,7 +237,7 @@ const setCardStatusBarDefault = () => {
 };
 
 const handleCanDismiss = /*#__PURE__*/function () {
-  var _ref = (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (el, animation) {
+  var _ref = (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (el, animation) {
     /**
      * If canDismiss is not a function
      * then we can return early. If canDismiss is `true`,
@@ -1551,7 +1551,7 @@ const Modal = class {
   swipeToCloseChanged(enable) {
     var _this = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this.gesture) {
         _this.gesture.enable(enable);
       } else if (enable) {
@@ -1658,7 +1658,7 @@ const Modal = class {
   checkCanDismiss() {
     var _this2 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const {
         canDismiss
       } = _this2;
@@ -1686,7 +1686,7 @@ const Modal = class {
   present() {
     var _this3 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this3.presented) {
         return;
       }
@@ -1823,7 +1823,7 @@ const Modal = class {
        * removed from the DOM.
        */
       this.gestureAnimationDismissing = true;
-      this.animation.onFinish( /*#__PURE__*/(0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      this.animation.onFinish( /*#__PURE__*/(0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
         yield _this4.dismiss(undefined, 'gesture');
         _this4.gestureAnimationDismissing = false;
       }));
@@ -1883,7 +1883,7 @@ const Modal = class {
      * removed from the DOM.
      */
     this.gestureAnimationDismissing = true;
-    this.animation.onFinish( /*#__PURE__*/(0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    this.animation.onFinish( /*#__PURE__*/(0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this5.currentBreakpoint = 0;
 
       _this5.ionBreakpointDidChange.emit({
@@ -1905,7 +1905,9 @@ const Modal = class {
   dismiss(data, role) {
     var _this6 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      var _a;
+
       if (_this6.gestureAnimationDismissing && role !== 'gesture') {
         return false;
       }
@@ -1955,7 +1957,7 @@ const Modal = class {
       const enteringAnimation = _overlays_87c7c7cb_js__WEBPACK_IMPORTED_MODULE_8__.h.get(_this6) || [];
       _this6.currentTransition = (0,_overlays_87c7c7cb_js__WEBPACK_IMPORTED_MODULE_8__.f)(_this6, data, role, 'modalLeave', iosLeaveAnimation, mdLeaveAnimation, {
         presentingEl: _this6.presentingElement,
-        currentBreakpoint: _this6.currentBreakpoint !== undefined || _this6.initialBreakpoint,
+        currentBreakpoint: (_a = _this6.currentBreakpoint) !== null && _a !== void 0 ? _a : _this6.initialBreakpoint,
         backdropBreakpoint: _this6.backdropBreakpoint
       });
       const dismissed = yield _this6.currentTransition;
@@ -2010,7 +2012,7 @@ const Modal = class {
   setCurrentBreakpoint(breakpoint) {
     var _this7 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (!_this7.isSheetModal) {
         (0,_index_c4b11676_js__WEBPACK_IMPORTED_MODULE_7__.p)('setCurrentBreakpoint is only supported on sheet modals.');
         return;
@@ -2051,7 +2053,7 @@ const Modal = class {
   getCurrentBreakpoint() {
     var _this8 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       return _this8.currentBreakpoint;
     })();
   }
@@ -2059,7 +2061,7 @@ const Modal = class {
   moveToNextBreakpoint() {
     var _this9 = this;
 
-    return (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const {
         breakpoints,
         currentBreakpoint
@@ -2188,7 +2190,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "h": () => (/* binding */ hostContext),
 /* harmony export */   "o": () => (/* binding */ openURL)
 /* harmony export */ });
-/* harmony import */ var _Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 
 
 /*!
@@ -2227,7 +2229,7 @@ const getClassMap = classes => {
 const SCHEME = /^[a-z][a-z0-9+\-.]*:/;
 
 const openURL = /*#__PURE__*/function () {
-  var _ref = (0,_Users_akagupta20_Projects_ionic_whatsapp_clone_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (url, ev, direction, animation) {
+  var _ref = (0,_Users_akagupta20_Desktop_Project_ionic_mobile_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (url, ev, direction, animation) {
     if (url != null && url[0] !== '#' && !SCHEME.test(url)) {
       const router = document.querySelector('ion-router');
 

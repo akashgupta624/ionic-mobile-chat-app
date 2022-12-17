@@ -4,9 +4,13 @@ import { Socket } from 'socket.io-client';
 import { AuthenticationService } from './auth.service';
 import { ServerMessage } from './message.modal';
 import { Contact, Contacts } from '@capacitor-community/contacts';
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { environment } from '../../environments/environment';
 import { Preferences } from '@capacitor/preferences';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
+declare var apiRTC: any;
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +20,15 @@ export class ServerConnect {
 public socket$!: Socket;
 public day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 public month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+localStream = null;
+connectedConversation = null;
+connectedSession = null;
 
 constructor(private platform: Platform,
-  private authService: AuthenticationService) {
+  private authService: AuthenticationService,
+  private alertController: AlertController,
+  private route: Router,
+  private location: Location) {
 
 }
 
@@ -26,9 +36,23 @@ public connect(): void {
   if (!this.socket$) {
     this.socket$ = io.connect(environment.server,  { transports: ['websocket', 'polling', 'flashsocket'] });
     this.startListeningForIncomingMessages();
+    this.startListeningForIncomingCalls();
     this.getNotifications();
+    this.socket$.on('hangup', (data) => {
+      this.hangUp();
+    });
     //this.userOnline();
   }
+}
+
+public signOut(): void {
+  this.authService.showLoader = true;
+  let msg: ServerMessage = new ServerMessage('subscribe', 'deleteUserFromDatabase', this.authService.form.phone);
+    this.socket$.emit('subscribe', msg, (data) => {
+      if(data.result === 'Success') {
+         this.authService.SignOut();
+      }
+    });
 }
 
 public startListeningForIncomingMessages(): void {
@@ -78,6 +102,35 @@ public startListeningForIncomingMessages(): void {
       this.authService.formData$.next(this.authService.form);
     }
   })
+}
+
+public startListeningForIncomingCalls(): void {
+  this.socket$.on('incomingCall', async (data) => {
+    const alert = await this.alertController.create({
+      header: 'Incoming Call from' + data.name,
+      subHeader: data.phone,
+      message: 'Incoming Call',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            // do nothing
+          },
+        },
+        {
+          text: 'OK',
+          role: 'confirm',
+          handler: () => {
+            this.initCall(data.uniqueId);
+            this.route.navigate(['/call', {"user": '', "uniqueId": data.uniqueId}]);
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  });
 }
 
 public async sendMessage(userId: any, message: any ): Promise<any> {
@@ -253,6 +306,100 @@ public getContacts(): void {
       });
     });
   }
+}
+
+initCall(id: any) {
+  var ua = new apiRTC.UserAgent({
+    uri: environment.apiKey
+  });
+  ua.register().then((session) => {
+    this.connectedSession = session;
+    this.connectedConversation = session.getConversation(id);
+    this.connectedConversation.on('streamListChanged', (streamInfo: any) => {
+      console.log("streamListChanged :", streamInfo);
+      if (streamInfo.listEventType === 'added') {
+        if (streamInfo.isRemote === true) {
+          this.connectedConversation.subscribeToMedia(streamInfo.streamId)
+            .then((stream) => {
+              console.log('subscribeToMedia success');
+            }).catch((err) => {
+              console.error('subscribeToMedia error', err);
+            });
+        }
+      }
+    });
+
+    this.connectedConversation.on('streamAdded', (stream: any) => {
+      stream.addInDiv('remote-container', 'remote-media-' + stream.streamId, {}, false);
+    }).on('streamRemoved', (stream: any) => {
+      stream.removeFromDiv('remote-container', 'remote-media-' + stream.streamId);
+    });
+
+    ua.createStream({
+      constraints: {
+        audio: true,
+        video: true
+      }
+    }).then((stream: any) => {
+
+        console.log('createStream :', stream);
+
+        // Save local stream
+        this.localStream = stream;
+        stream.removeFromDiv('local-container', 'local-media');
+        stream.addInDiv('local-container', 'local-media', {}, true);
+      
+        this.connectedConversation.join()
+          .then((response: any) => {
+            this.connectedConversation.publish(this.localStream);
+          }).catch((err) => {
+            console.error('Conversation join error', err);
+          });
+
+      }).catch((err) => {
+        console.error('create stream error', err);
+      });
+  });
+}
+
+leaveCall(userID: any): void {
+  if (this.connectedConversation !== null) {
+    this.connectedConversation.leave()
+        .then(function() {
+            console.debug('Conversation leave OK');
+            this.connectedConversation.destroy();
+            this.connectedConversation = null;
+        }).catch(function(err) {
+            console.error('Conversation leave error', err);
+        });
+        const msg = new ServerMessage('subscribe', 'callDisconnected', userID); 
+        this.socket$.emit('subscribe', msg, (data: any[]) => {})
+        document.getElementById('remote-container').remove();
+        document.getElementById('local-container').remove();
+        this.location.back()
+}
+
+if (this.localStream !== null) {
+    this.localStream.release();
+}
+}
+hangUp(): void {
+  if (this.connectedConversation !== null) {
+    this.connectedConversation.leave()
+        .then(function() {
+            console.debug('Conversation leave OK');
+            this.connectedConversation.destroy();
+            this.connectedConversation = null;
+        }).catch(function(err) {
+            console.error('Conversation leave error', err);
+        });       
+}
+if (this.localStream !== null) {
+    this.localStream.release();
+}
+document.getElementById('remote-container').remove();
+document.getElementById('local-container').remove();
+this.location.back()
 }
 
 }
