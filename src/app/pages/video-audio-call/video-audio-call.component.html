@@ -1,0 +1,51 @@
+<ion-content>
+
+  <ion-item lines="none" style="margin-bottom: 60px">
+    Calling 
+  </ion-item>
+  <div *ngIf="user && user.id">
+    <ion-item lines="none">
+      <ion-avatar>
+        <img [src]="user.avatar">
+      </ion-avatar>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-no-margin">
+        {{user.name}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-no-margin">
+        {{callStatus + " "  + user.id}}
+      </ion-label>
+    </ion-item>
+  </div>
+  <div>
+    <div class="video remote" id="remote-container">
+    </div>
+    <div class="video local" id="local-container">
+    </div>
+</div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-button>
+    <ion-icon name="volume-high-sharp"></ion-icon>
+  </ion-button>
+
+  <ion-button (click)="toggleVideo()">
+    <ion-icon *ngIf="videoOn" name="videocam-sharp"></ion-icon>
+    <ion-icon *ngIf="!videoOn" name="videocam-off-sharp"></ion-icon>
+  </ion-button>
+  
+  <ion-button (click)="toggleAudio()">
+    <ion-icon *ngIf="audioOn" name="mic-sharp"></ion-icon>
+    <ion-icon *ngIf="!audioOn" name="mic-off-sharp"></ion-icon>
+  </ion-button>
+
+  <ion-button (click)="goBack()">
+    <ion-icon name="call-sharp"></ion-icon>
+  </ion-button>
+  
+</ion-footer>

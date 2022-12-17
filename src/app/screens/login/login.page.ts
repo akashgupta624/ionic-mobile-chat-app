@@ -90,16 +90,22 @@ export class LoginPage implements OnInit {
           else if(data.subscriptionType === 'AlreadyExist') {
             this.authService.form = data.result;
             this.authService.showLoader = false;
-            const alert = await this.alertController.create({
-              header: 'Success',
-              subHeader: 'Account Already Exist',
-              message: 'Logging in with the same account...',
-              buttons: ['OK'],
-            });
-        
-            await alert.present();
-            this.authService.formData$.next(data.result);
-            this.router.navigate(['/tabs']);
+            let date = new Date();
+            let today = (this.dataService.day[date.getDay()] + " " + date.getDate() + " " + this.dataService.month[date.getMonth()] + " " + date.getFullYear());
+            this.authService.loadFormData(today).then(async () =>{
+              const alert = await this.alertController.create({
+                header: 'Success',
+                subHeader: 'Account Already Exist',
+                message: 'Logging in with the same account...',
+                buttons: ['OK'],
+              });
+          
+              await alert.present();
+              //this.authService.formData$.next(data.result);
+              console.log("Form Data fetched and saved is as :- ", this.authService.form);
+              this.router.navigate(['/tabs']);
+            })
+            
           }
           else {
             const alert = await this.alertController.create({

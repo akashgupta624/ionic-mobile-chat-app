@@ -1,0 +1,52 @@
+ion-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    bottom: 0px;
+    padding: 13px;
+    position: absolute;
+}
+
+ion-button {
+    background: transparent;
+    --background: transparent;
+    --border-radius: 50%;
+    border-radius: 50%;
+    height: 55px;
+    font-size: 16px;
+}
+ion-button:last-child {
+    background: red;
+    --background: red;
+}
+:host ion-content {
+    height: 100vh;
+}
+ion-item {
+    border: none;
+    --border-color: transparent;
+    display: grid;
+    justify-content: center;
+}
+
+.video {
+    position: absolute;
+}
+
+.local {
+    width: 150px;
+    height: 200px;
+    right: 20px;
+    bottom: 80px; 
+}
+
+.remote {
+    width: 100vw;
+    height: -webkit-fill-available;
+}
+
+::ng-deep video {
+    width: -webkit-fill-available;
+    border-radius: 15px;
+}

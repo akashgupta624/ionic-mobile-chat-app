@@ -314,6 +314,7 @@ initCall(id: any) {
   });
   ua.register().then((session) => {
     this.connectedSession = session;
+    console.log("uniqueId :- " + id);
     this.connectedConversation = session.getConversation(id);
     this.connectedConversation.on('streamListChanged', (streamInfo: any) => {
       console.log("streamListChanged :", streamInfo);
