@@ -331,7 +331,19 @@ initCall(id: any) {
     });
 
     this.connectedConversation.on('streamAdded', (stream: any) => {
-      stream.addInDiv('remote-container', 'remote-media-' + stream.streamId, {}, false);
+      //stream.addInDiv('remote-container', 'remote-media-' + stream.streamId, {}, false);
+       // Subscribed Stream is available for display
+      // Get remote media container
+      var container = document.getElementById('remote-container');
+      // Create media element
+      var mediaElement = document.createElement('video');
+      mediaElement.id = 'remote-media-' + stream.streamId;
+      mediaElement.autoplay = true;
+      mediaElement.muted = false;
+      // Add media element to media container
+      container.appendChild(mediaElement);
+      // Attach stream
+      stream.attachToElement(mediaElement);
     }).on('streamRemoved', (stream: any) => {
       stream.removeFromDiv('remote-container', 'remote-media-' + stream.streamId);
     });
@@ -339,7 +351,13 @@ initCall(id: any) {
     ua.createStream({
       constraints: {
         audio: true,
-        video: true
+        video: true,
+        audioInputId: true,
+        videoInputId: true,
+        constraints: {},
+        enhancedAudioActivated: false,
+        facingMode: "user",
+        filters: []
       }
     }).then((stream: any) => {
 
@@ -348,7 +366,18 @@ initCall(id: any) {
         // Save local stream
         this.localStream = stream;
         stream.removeFromDiv('local-container', 'local-media');
-        stream.addInDiv('local-container', 'local-media', {}, true);
+        //stream.addInDiv('local-container', 'local-media', {}, true);
+        // Get media container
+        var container = document.getElementById('local-container');
+        // Create media element
+        var mediaElement = document.createElement('video');
+        mediaElement.id = 'local-media';
+        mediaElement.autoplay = true;
+        mediaElement.muted = true;
+        // Add media element to media container
+        container.appendChild(mediaElement);
+        // Attach stream
+        this.localStream.attachToElement(mediaElement);
       
         this.connectedConversation.join()
           .then((response: any) => {
@@ -375,8 +404,8 @@ leaveCall(userID: any): void {
         });
         const msg = new ServerMessage('subscribe', 'callDisconnected', userID); 
         this.socket$.emit('subscribe', msg, (data: any[]) => {})
-        document.getElementById('remote-container').remove();
-        document.getElementById('local-container').remove();
+        document.getElementById('remote-container')?.remove();
+        document.getElementById('local-container')?.remove();
         this.location.back()
 }
 
@@ -398,8 +427,8 @@ hangUp(): void {
 if (this.localStream !== null) {
     this.localStream.release();
 }
-document.getElementById('remote-container').remove();
-document.getElementById('local-container').remove();
+document.getElementById('remote-container')?.remove();
+document.getElementById('local-container')?.remove();
 this.location.back()
 }
 

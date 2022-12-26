@@ -42,11 +42,14 @@ ion-item {
 }
 
 .remote {
-    width: 100vw;
-    height: -webkit-fill-available;
+    width: 100%;
+    height: 85%;
+    padding: 20px;
+    top: 50px;
 }
 
 ::ng-deep video {
     width: -webkit-fill-available;
+    height: -webkit-fill-available;
     border-radius: 15px;
 }
