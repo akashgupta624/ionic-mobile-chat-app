@@ -4,6 +4,7 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
+    "sonar": "node_modules/sonar-scanner/bin/sonar-scanner",
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
@@ -93,7 +94,8 @@
     "protractor": "~7.0.0",
     "ts-node": "10.9.1",
     "tslint": "~6.1.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "sonar-scanner": "^3.1.0"
   },
   "description": "An Ionic project",
   "cordova": {
